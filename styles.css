@@ -1,0 +1,188 @@
+:root {
+  color-scheme: only light;
+  --panel: rgba(18, 52, 69, 0.72);
+  --panel-border: rgba(255, 255, 255, 0.2);
+  --text: #f4fffd;
+  --accent: #5fd7b0;
+}
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top, #c6f3f2, #86cfe3 50%, #2f6a80);
+  font-family: "Trebuchet MS", "Avenir Next", Arial, sans-serif;
+  overflow: hidden;
+  touch-action: none;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#gameCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.panel {
+  position: absolute;
+  left: 50%;
+  top: calc(env(safe-area-inset-top, 0px) + 1rem);
+  transform: translateX(-50%);
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  padding: 0.6rem 1rem;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+#hudShell {
+  position: absolute;
+  inset-inline: 0;
+  top: calc(env(safe-area-inset-top, 0px) + 0.7rem);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.9rem;
+  gap: 0.6rem;
+}
+
+.hudPanel {
+  min-width: 110px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 15px;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+  text-align: left;
+}
+
+.hudPanel.center {
+  text-align: center;
+  min-width: 150px;
+}
+
+.hudPanel h2 {
+  margin: 0;
+  font-size: 0.7rem;
+  opacity: 0.8;
+  letter-spacing: 0.08em;
+}
+
+.hudPanel p {
+  margin: 0.1rem 0 0;
+  font-size: 1rem;
+}
+
+.hudPanel p:last-child {
+  font-size: 0.86rem;
+  opacity: 0.85;
+}
+
+#tipBar {
+  top: calc(env(safe-area-inset-top, 0px) + 4.7rem);
+  padding-inline: 1rem;
+  font-weight: 700;
+  max-width: min(92vw, 580px);
+  text-align: center;
+}
+
+#introCard {
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.96);
+  opacity: 0;
+  transition: opacity 250ms ease, transform 250ms ease;
+  min-width: min(84vw, 480px);
+  text-align: center;
+  font-size: clamp(1.05rem, 2.8vw, 1.9rem);
+  font-weight: 700;
+  padding: 1.4rem 1.7rem;
+}
+
+#introCard.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1.2rem;
+  background: linear-gradient(rgba(9, 22, 36, 0.5), rgba(9, 22, 36, 0.8));
+  color: var(--text);
+}
+
+.overlay h1 {
+  margin-bottom: 0.4rem;
+}
+
+.overlay p {
+  max-width: 36ch;
+  margin: 0 auto 1rem;
+}
+
+.overlay button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1.2rem;
+  background: var(--accent);
+  color: #033b2e;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+#mobileControls {
+  position: absolute;
+  inset-inline: 1rem;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 0.8rem);
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.controlGroup {
+  display: flex;
+  gap: 0.55rem;
+}
+
+#mobileControls button {
+  border: none;
+  min-width: 4.5rem;
+  min-height: 3.8rem;
+  border-radius: 20px;
+  background: rgba(168, 205, 193, 0.33);
+  color: #f0fffb;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 8px 18px rgba(0, 0, 0, 0.14);
+}
+
+@media (min-width: 900px) {
+  #hudShell {
+    padding: 0 1.2rem;
+  }
+
+  #mobileControls {
+    inset-inline: 1.2rem;
+    max-width: 100%;
+  }
+}
