@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <title>El Coquí — Vertical Slice</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="gameCanvas" width="960" height="540" aria-label="El Coquí platformer canvas"></canvas>
+      <div id="hud" class="panel"></div>
+      <div id="introCard" class="panel"></div>
+      <div id="titleScreen" class="overlay">
+        <h1>El Coquí</h1>
+        <p>A rainforest adventure through mist, waterfalls, and hidden shrine paths.</p>
+        <button id="startButton">Start Adventure</button>
+      </div>
+      <div id="mobileControls" aria-label="Mobile controls">
+        <button data-action="left">◀</button>
+        <button data-action="right">▶</button>
+        <button data-action="jump">Jump</button>
+        <button data-action="chirp">Chirp</button>
+      </div>
+    </div>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

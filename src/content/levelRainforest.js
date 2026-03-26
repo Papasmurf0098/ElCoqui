@@ -1,0 +1,27 @@
+export const levelRainforest = {
+  id: "rainforest-01",
+  title: "Whispers of the Yunque",
+  world: { width: 2600, height: 980 },
+  spawn: { x: 100, y: 760 },
+  solids: [
+    { x: 0, y: 830, w: 520, h: 200 },
+    { x: 560, y: 760, w: 260, h: 50 },
+    { x: 870, y: 690, w: 260, h: 50 },
+    { x: 1160, y: 760, w: 260, h: 50 },
+    { x: 1470, y: 700, w: 190, h: 50 },
+    { x: 1680, y: 620, w: 200, h: 45 },
+    { x: 1920, y: 540, w: 240, h: 45 },
+    { x: 2200, y: 700, w: 360, h: 200 },
+    { x: 2260, y: 470, w: 190, h: 40 },
+  ],
+  hiddenBridges: [{ x: 1350, y: 565, w: 300, h: 34, revealRadius: 250, revealed: false }],
+  collectibles: [
+    { x: 600, y: 705, w: 22, h: 22 },
+    { x: 940, y: 635, w: 22, h: 22 },
+    { x: 1740, y: 560, w: 22, h: 22 },
+    { x: 2320, y: 430, w: 22, h: 22 },
+  ],
+  checkpoint: { x: 1540, y: 646, w: 24, h: 54 },
+  goal: { x: 2380, y: 406, w: 32, h: 64 },
+  enemies: [{ x: 1970, y: 506, w: 32, h: 34, minX: 1940, maxX: 2100, speed: 1.1 }],
+};
