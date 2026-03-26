@@ -7,7 +7,7 @@ export const PHYSICS = {
   accelGround: 2400,
   accelAir: 1600,
   friction: 2000,
-  jumpVelocity: 828,
+  jumpVelocity: 690,
   coyoteTime: 0.12,
   jumpBuffer: 0.12,
 };

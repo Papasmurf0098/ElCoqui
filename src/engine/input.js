@@ -13,21 +13,16 @@ export class InputSystem {
 
   attachMobileControls(element) {
     const map = new Map();
-    this.pointerActions = new Map();
     element.querySelectorAll("button[data-action]").forEach((button) => {
       const action = button.dataset.action;
       const start = (event) => {
         event.preventDefault();
-        button.setPointerCapture?.(event.pointerId);
-        this.pointerActions.set(event.pointerId, action);
         this.down.add(action);
         this.pressed.add(action);
       };
       const end = (event) => {
         event.preventDefault();
-        const pointerAction = this.pointerActions.get(event.pointerId) || action;
-        this.pointerActions.delete(event.pointerId);
-        this.down.delete(pointerAction);
+        this.down.delete(action);
       };
       button.addEventListener("pointerdown", start);
       button.addEventListener("pointerup", end);
@@ -35,16 +30,6 @@ export class InputSystem {
       button.addEventListener("pointerleave", end);
       map.set(button, { start, end });
     });
-    this.releaseAllPointers = () => {
-      this.pointerActions.clear();
-      this.down.delete("left");
-      this.down.delete("right");
-      this.down.delete("jump");
-      this.down.delete("chirp");
-    };
-    window.addEventListener("pointerup", this.releaseAllPointers);
-    window.addEventListener("pointercancel", this.releaseAllPointers);
-    window.addEventListener("blur", this.releaseAllPointers);
     this.mobileListeners = map;
   }
 
