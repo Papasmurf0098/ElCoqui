@@ -1,0 +1,121 @@
+:root {
+  color-scheme: only light;
+  --bg: #d7f0f4;
+  --panel: rgba(12, 34, 46, 0.62);
+  --panel-border: rgba(255, 255, 255, 0.2);
+  --text: #f4fffd;
+  --accent: #44d2a0;
+}
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top, #c6f3f2, #86cfe3 50%, #2f6a80);
+  font-family: "Trebuchet MS", "Avenir Next", Arial, sans-serif;
+  overflow: hidden;
+  touch-action: none;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#gameCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.panel {
+  position: absolute;
+  left: 1rem;
+  top: calc(env(safe-area-inset-top, 0px) + 1rem);
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  padding: 0.6rem 0.9rem;
+  backdrop-filter: blur(4px);
+}
+
+#introCard {
+  top: calc(env(safe-area-inset-top, 0px) + 4.8rem);
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 250ms ease, transform 250ms ease;
+}
+
+#introCard.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1.2rem;
+  background: linear-gradient(rgba(9, 22, 36, 0.5), rgba(9, 22, 36, 0.8));
+  color: var(--text);
+}
+
+.overlay h1 {
+  margin-bottom: 0.4rem;
+}
+
+.overlay p {
+  max-width: 36ch;
+  margin: 0 auto 1rem;
+}
+
+.overlay button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1.2rem;
+  background: var(--accent);
+  color: #033b2e;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+#mobileControls {
+  position: absolute;
+  inset-inline: 0;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 0.8rem);
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 0.8rem;
+}
+
+#mobileControls button {
+  border: none;
+  min-width: 4.2rem;
+  min-height: 3.4rem;
+  border-radius: 14px;
+  background: rgba(8, 24, 38, 0.76);
+  color: #f0fffb;
+  font-size: 1rem;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+@media (min-width: 900px) {
+  #mobileControls {
+    justify-content: flex-start;
+    padding-left: 1.2rem;
+  }
+}
