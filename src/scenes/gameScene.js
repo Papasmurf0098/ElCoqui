@@ -18,13 +18,6 @@ export class GameScene {
 
   enter() {
     this.ui.showIntro(this.level.data.title);
-    this.ui.setHud({
-      collected: this.collectedCount,
-      total: this.totalCollectibles,
-      checkpointActive: this.level.checkpoint.activated,
-      levelName: "Lowland Run",
-      powerMode: "None",
-    });
   }
 
   update(dt, input) {
@@ -51,12 +44,5 @@ export class GameScene {
     }
 
     this.camera.follow(this.player, this.level.world.width, this.level.world.height);
-    this.ui.setHud({
-      collected: this.collectedCount,
-      total: this.totalCollectibles,
-      checkpointActive: this.level.checkpoint.activated,
-      levelName: "Lowland Run",
-      powerMode: "None",
-    });
   }
 }

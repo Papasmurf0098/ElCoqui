@@ -40,6 +40,6 @@ function loop(now) {
   }
 
   renderer.draw(scene);
-  input.endFrame(dt);
+  input.endFrame();
 }
 requestAnimationFrame(loop);
