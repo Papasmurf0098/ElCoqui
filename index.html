@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <title>El Coquí — Vertical Slice</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="gameCanvas" width="960" height="540" aria-label="El Coquí platformer canvas"></canvas>
+      <div id="hudShell">
+        <section class="hudPanel" id="forestPanel">
+          <h2>FOREST ECHOES</h2>
+          <p><strong id="relicCountLeft">0/0</strong></p>
+          <p>Lives <span id="livesCount">3</span></p>
+        </section>
+        <section class="hudPanel center" id="relicPanel">
+          <h2>RELICS</h2>
+          <p><strong id="relicCountMain">0/0</strong></p>
+          <p id="levelName">Lowland Run</p>
+        </section>
+        <section class="hudPanel" id="powerPanel">
+          <h2>POWER BLOOM</h2>
+          <p><strong id="powerMode">None</strong></p>
+          <p id="chirpHintState">Chirp to reveal paths</p>
+        </section>
+      </div>
+      <div id="tipBar" class="panel">Laptop tip: move with arrows/WASD, jump with Space, chirp with C/E.</div>
+      <div id="introCard" class="panel"></div>
+      <div id="titleScreen" class="overlay">
+        <h1>El Coquí</h1>
+        <p>A rainforest adventure through mist, waterfalls, and hidden shrine paths.</p>
+        <button id="startButton">Start Adventure</button>
+      </div>
+      <div id="mobileControls" aria-label="Mobile controls">
+        <div class="controlGroup">
+          <button data-action="left">◀</button>
+          <button data-action="right">▶</button>
+        </div>
+        <div class="controlGroup">
+          <button data-action="chirp">POP</button>
+          <button data-action="jump">JUMP</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
